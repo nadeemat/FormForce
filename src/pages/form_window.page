@@ -1,0 +1,32 @@
+<apex:page controller="ctrl_form_window" >
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+     <script>
+       j$ = jQuery.noConflict();
+       j$(document).ready(function() {                
+               ctrl_form_window.getHtmlMarkup(handleContactCreate);
+               
+      });
+    
+      function handleContactCreate(result,event) {
+             if(event.type == 'exception') {
+                  alert(event.message);
+              } else {
+                alert('A contact was created with the ID: '+result);
+                j$("#mainContainer").html(result);
+                /*document.getElementById('mainContainer').innerHTML=result;*/
+              }
+          }
+     
+     </script>
+     
+</head>
+<body>
+<script>
+$("#mainContainer").html("<input type=text value=JASON />");
+</script>
+    <span id="mainContainer"> hello !
+    </span>
+</body>
+</apex:page>
